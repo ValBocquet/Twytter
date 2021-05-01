@@ -1,4 +1,13 @@
 <div class="jumbotron mt-5">
+    <% if @user.errors.any? %>
+        <div class="alert alert-danger">
+            <ul style="margin: 0;">
+                <% @user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <%end%>
+            </ul>
+        </div>
+    <%end%>
     <h1>S'inscrire</h1>
 
     <%= form_for @user, class: 'form-horizontal' do |f| %>
