@@ -172,7 +172,7 @@ unless enabled_sanitizers.empty?
   warn "-----\nEnabling sanitizers: #{enabled_sanitizers.join(',')}\n-----"
   enabled_sanitizers.each do |s|
     # address sanitizer requires runtime support
-    if s == 'address' # rubocop:disable Style/IfUnlessModifier
+    if s == 'address'
       have_library('asan') || $LDFLAGS << ' -fsanitize=address'
     end
     $CFLAGS << " -fsanitize=#{s}"
