@@ -11,5 +11,7 @@ class User < ApplicationRecord
         format: {with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/},
         uniqueness: {case_sensitive: false}
 
+    validates :password, length: 6..90
+
 
 end
